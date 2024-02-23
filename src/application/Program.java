@@ -19,10 +19,10 @@ public class Program {
 		list.add(new Product("Mouse", 80.00));
 		list.add(new Product("HD Case", 50.00));
 		
-		Predicate<Product> prod = p -> p.getPrice() >= 100;
+		double min = 100.0;
 		
 		list.sort((p1, p2) -> p1.getName().toUpperCase().compareTo(p2.getName().toUpperCase()));
-		list.removeIf(prod);
+		list.removeIf(p -> p.getPrice() >= min);
 		
 		for(Product p : list) {
 			System.out.println(p);
