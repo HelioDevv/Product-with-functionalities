@@ -20,7 +20,7 @@ public class Program {
 		list.add(new Product("HD Case", 50.00));
 		
 		list.sort((p1, p2) -> p1.getName().toUpperCase().compareTo(p2.getName().toUpperCase()));
-		list.removeIf(Product::staticProductPredicate);
+		list.removeIf(Product::nonStaticProductPredicate);
 		
 		for(Product p : list) {
 			System.out.println(p);
