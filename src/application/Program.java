@@ -3,9 +3,9 @@ package application;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
+import java.util.function.Predicate;
 
 import entities.Product;
-import util.ProductPredicate;
 
 public class Program {
 
@@ -19,8 +19,10 @@ public class Program {
 		list.add(new Product("Mouse", 80.00));
 		list.add(new Product("HD Case", 50.00));
 		
+		Predicate<Product> prod = p -> p.getPrice() >= 100;
+		
 		list.sort((p1, p2) -> p1.getName().toUpperCase().compareTo(p2.getName().toUpperCase()));
-		list.removeIf(Product::nonStaticProductPredicate);
+		list.removeIf(prod);
 		
 		for(Product p : list) {
 			System.out.println(p);
